@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CyberStart Academy — Learn ethical hacking, cybersecurity, and penetration testing in a safe, legal, and structured environment. Courses, labs, quizzes, and certifications." />
+  <meta name="keywords" content="cybersecurity, ethical hacking, penetration testing, kali linux, nmap, wireshark, learn hacking, cybersecurity courses, CTF, security labs" />
+  <meta name="author" content="CyberStart Academy" />
+  <meta property="og:title" content="CyberStart Academy — Learn Cybersecurity Ethically" />
+  <meta property="og:description" content="Master ethical hacking, network security, and penetration testing with structured learning paths, virtual labs, and certification programs." />
+  <meta property="og:type" content="website" />
+  <title>CyberStart Academy — Learn Ethical Hacking & Cybersecurity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <script src="three-background.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body class="cyber-body" data-page="home">
+
+  <!-- ===== CANVAS BACKGROUND ===== -->
+  <canvas id="cyber-canvas"></canvas>
+
+  <!-- ===== LOADING SCREEN ===== -->
+  <div id="loader" class="loader" role="status" aria-label="Loading CyberStart Academy">
+    <div class="loader-inner">
+      <div class="loader-logo">
+        <span class="loader-bracket">[</span>
+        <span class="loader-text">CYBERSTART</span>
+        <span class="loader-bracket">]</span>
+      </div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+      <div class="loader-status" id="loader-status">Initializing systems...</div>
+    </div>
+  </div>
+
+  <!-- ===== HEADER / NAV ===== -->
+  <header class="site-header" id="site-header" role="banner">
+    <div class="header-inner">
+      <a href="#home" class="logo" aria-label="CyberStart Academy Home">
+        <span class="logo-icon">&#9670;</span>
+        <span class="logo-text">Cyber<span class="logo-accent">Start</span></span>
+        <span class="logo-sub">ACADEMY</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+          <li><a href="#courses" class="nav-link" data-section="courses">Courses</a></li>
+          <li><a href="#learning-paths" class="nav-link" data-section="learning-paths">Paths</a></li>
+          <li><a href="#labs" class="nav-link" data-section="labs">Labs</a></li>
+          <li><a href="#quizzes" class="nav-link" data-section="quizzes">Quizzes</a></li>
+          <li><a href="#leaderboard" class="nav-link" data-section="leaderboard">Leaderboard</a></li>
+          <li><a href="#badges" class="nav-link" data-section="badges">Badges</a></li>
+          <li><a href="#videos" class="nav-link" data-section="videos">Videos</a></li>
+          <li><a href="#tools" class="nav-link" data-section="tools">Tools</a></li>
+          <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+          <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn-search" id="search-toggle" aria-label="Toggle search" aria-expanded="false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <button class="btn-outline-neon" id="login-btn" aria-haspopup="dialog">Log In</button>
+        <button class="btn-neon" id="register-btn" aria-haspopup="dialog">Get Started</button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="main-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-bar" id="search-bar" role="search" aria-hidden="true">
+      <input type="search" id="global-search" class="search-input" placeholder="Search courses, labs, tools..." aria-label="Search site content" />
+      <div class="search-results" id="search-results" role="listbox" aria-label="Search results"></div>
+    </div>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main id="main-content">
+
+    <!-- ===================== HOME ===================== -->
+    <section id="home" class="page-section active" aria-label="Home">
+
+      <!-- HERO -->
+      <div class="hero">
+        <div class="hero-content">
+          <div class="hero-eyebrow">
+            <span class="dot-pulse"></span>
+            <span>LIVE TRAINING ENVIRONMENT</span>
+          </div>
+          <h1 class="hero-title">
+            <span class="line1">Master the Art of</span>
+            <span class="line2 glitch" data-text="Ethical Hacking">Ethical Hacking</span>
+          </h1>
+          <p class="hero-sub">Structured cybersecurity education built for real-world skills. Learn penetration testing, network defense, and digital forensics in a completely safe and legal environment.</p>
+          <div class="hero-actions">
+            <button class="btn-neon btn-lg" onclick="navigateTo('learning-paths')">Start Learning Free</button>
+            <button class="btn-outline-neon btn-lg" onclick="navigateTo('labs')">Explore Labs</button>
+          </div>
+          <div class="hero-badges">
+            <span class="badge-chip">&#10003; 100% Legal &amp; Ethical</span>
+            <span class="badge-chip">&#10003; Beginner Friendly</span>
+            <span class="badge-chip">&#10003; Industry Certified</span>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="terminal-window">
+            <div class="term-bar">
+              <span class="term-dot red"></span>
+              <span class="term-dot yellow"></span>
+              <span class="term-dot green"></span>
+              <span class="term-title">cyberstart@academy:~</span>
+            </div>
+            <div class="term-body" id="terminal-body">
+              <div class="term-line"><span class="prompt">root@cyberlab:~#</span> <span class="cmd">nmap -sV 192.168.1.0/24</span></div>
+              <div class="term-line output">Starting Nmap 7.92 ( https://nmap.org )</div>
+              <div class="term-line output">Scanning 256 hosts [1000 ports/host]</div>
+              <div class="term-line output typed" id="typed-line">_</div>
+            </div>
+          </div>
+          <div class="hero-stats-grid">
+            <div class="mini-stat"><span class="mini-num" data-count="48500">0</span><span class="mini-label">Students</span></div>
+            <div class="mini-stat"><span class="mini-num" data-count="320">0</span><span class="mini-label">Labs</span></div>
+            <div class="mini-stat"><span class="mini-num" data-count="85">0</span><span class="mini-label">Courses</span></div>
+            <div class="mini-stat"><span class="mini-num" data-count="12400">0</span><span class="mini-label">Certs Issued</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURED COURSES -->
+      <div class="section-block">
+        <div class="section-header">
+          <div class="section-eyebrow">FEATURED MODULES</div>
+          <h2 class="section-title">Popular Courses</h2>
+          <p class="section-sub">Handpicked by our security instructors — start with what matters most.</p>
+        </div>
+        <div class="courses-grid" id="featured-courses-grid"></div>
+        <div class="section-cta">
+          <button class="btn-outline-neon" onclick="navigateTo('courses')">View All Courses →</button>
+        </div>
+      </div>
+
+      <!-- STATS BANNER -->
+      <div class="stats-banner">
+        <div class="stat-item">
+          <span class="stat-num" data-count="48500">48,500+</span>
+          <span class="stat-label">Active Students</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-count="320">320+</span>
+          <span class="stat-label">Practice Labs</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-count="12400">12,400+</span>
+          <span class="stat-label">Certificates Issued</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-count="1800">1,800+</span>
+          <span class="stat-label">Challenges Completed Daily</span>
+        </div>
+      </div>
+
+      <!-- TESTIMONIALS -->
+      <div class="section-block">
+        <div class="section-header">
+          <div class="section-eyebrow">COMMUNITY VOICES</div>
+          <h2 class="section-title">What Students Say</h2>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card glass-card">
+            <div class="testi-header">
+              <div class="avatar" aria-hidden="true">AK</div>
+              <div>
+                <div class="testi-name">Ahmad Karimi</div>
+                <div class="testi-role">Security Analyst @ TechCorp</div>
+              </div>
+              <div class="testi-stars" aria-label="5 star rating">★★★★★</div>
+            </div>
+            <p class="testi-text">"CyberStart Academy transformed my understanding of network security. The hands-on labs are exactly what employers look for. Went from zero to landing my first security role in 8 months."</p>
+          </div>
+          <div class="testimonial-card glass-card">
+            <div class="testi-header">
+              <div class="avatar" aria-hidden="true">SR</div>
+              <div>
+                <div class="testi-name">Sophia Reyes</div>
+                <div class="testi-role">Penetration Tester @ SecureIT</div>
+              </div>
+              <div class="testi-stars" aria-label="5 star rating">★★★★★</div>
+            </div>
+            <p class="testi-text">"The learning paths are incredibly well structured. I completed the Advanced Penetration Testing path and it prepared me better than any bootcamp. The CTF challenges are addictive!"</p>
+          </div>
+          <div class="testimonial-card glass-card">
+            <div class="testi-header">
+              <div class="avatar" aria-hidden="true">MN</div>
+              <div>
+                <div class="testi-name">Marcus Nguyen</div>
+                <div class="testi-role">CS Student, University of Toronto</div>
+              </div>
+              <div class="testi-stars" aria-label="5 star rating">★★★★★</div>
+            </div>
+            <p class="testi-text">"As a complete beginner, I was nervous about cybersecurity. The beginner path walked me through everything step by step. The community and the instructors are super helpful."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA BANNER -->
+      <div class="cta-banner glass-card">
+        <div class="cta-text">
+          <h2>Ready to Begin Your Cyber Journey?</h2>
+          <p>Join 48,500+ students learning ethical hacking and cybersecurity the right way.</p>
+        </div>
+        <div class="cta-actions">
+          <button class="btn-neon btn-lg" id="cta-register">Create Free Account</button>
+          <button class="btn-outline-neon" onclick="navigateTo('learning-paths')">Explore Paths</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== COURSES ===================== -->
+    <section id="courses" class="page-section" aria-label="Courses" hidden>
+      <div class="section-block">
+        <div class="section-header">
+          <div class="section-eyebrow">CURRICULUM</div>
+          <h2 class="section-title">All Courses</h2>
+          <p class="section-sub">85 expert-crafted courses across all skill levels. Filter by topic, level, or search below.</p>
+        </div>
+        <div class="filter-bar">
+          <input type="search" class="filter-input" id="course-search" placeholder="Search courses..." aria-label="Search courses" />
+          <div class="filter-btns" role="group" aria-label="Filter by level">
+            <button class="filter-btn active" data-filter="all">All Levels</button>
+            <button class="filter-btn" data-filter="beginner">Beginner</button>
+            <button class="filter-btn" data-filter="intermediate">Intermediate</button>
+            <button class="filter-btn" data-filter="advanced">Advanced</button>
+          </div>
+        </div>
+        <div class="courses-grid" id="all-courses-grid"></div>
+      </div>
+    </section>
+
+    <!-- ===================== LEARNING PATHS ===================== -->
+    <section id="learning-paths" class="page-section" aria-label="Learning Paths" hidden>
+      <div class="section-block">
+        <div class="section-header">
+          <div class="section-eyebrow">STRUCTURED CURRICULUM</div>
+          <h2 class="section-title">Learning Paths</h2>
+          <p class="section-sub">Follow a structured roadmap from zero to professional. Each path builds on the last, with labs, quizzes, and a certificate at the end.</p>
+        </div>
+        <div class="paths-container">
+
+          <!-- BEGINNER PATH -->
+          <div class="path-card glass-card">
+            <div class="path-header">
+              <div class="path-level-badge beginner">BEGINNER</div>
+              <h3 class="path-title">Cybersecurity Foundations</h3>
+              <p class="path-desc">Start from zero. Build a rock-solid foundation in networking, Linux, and ethical mindset before diving deeper.</p>
+              <div class="path-meta">
+                <span>6 Modules</span>
+                <span>~40 Hours</span>
+                <span>Certificate Included</span>
+              </div>
+            </div>
+            <ol class="path-modules" aria-label="Beginner modules">
+              <li class="path-module" data-order="01">
+                <div class="module-icon">&#128260;</div>
+                <div class="module-info">
+                  <div class="module-name">Introduction to Cybersecurity</div>
+                  <div class="module-detail">What is cybersecurity, threat landscape, career paths</div>
+                </div>
+                <div class="module-status unlocked" aria-label="Unlocked">&#9654;</div>
+              </li>
+              <li class="path-module" data-order="02">
+                <div class="module-icon">&#127760;</div>
+                <div class="module-info">
+                  <div class="module-name">Basic Networking</div>
+                  <div class="module-detail">TCP/IP, DNS, HTTP/S, ports, protocols, OSI model</div>
+                </div>
+                <div class="module-status unlocked" aria-label="Unlocked">&#9654;</div>
+              </li>
+              <li class="path-module" data-order="03">
+                <div class="module-icon">&#128039;</div>
+                <div class="module-info">
+                  <div class="module-name">Linux Fundamentals</div>
+                  <div class="module-detail">File system, users, permissions, processes, scripting</div>
+                </div>
+                <div class="module-status unlocked" aria-label="Unlocked">&#9654;</div>
+              </li>
+              <li class="path-module" data-order="04">
+                <div class="module-icon">&#128011;</div>
+                <div class="module-info">
+                  <div class="module-name">Kali Linux Introduction</div>
+                  <div class="module-detail">Setup, navigation, key tools overview, lab environment</div>
+                </div>
+                <div class="module-status locked" aria-label="Locked - complete previous module">&#128274;</div>
+              </li>
+              <li class="path-module" data-order="05">
+                <div class="module-icon">&#9000;</div>
+                <div class="module-info">
+                  <div class="module-name">Terminal Basics</div>
+                  <div class="module-detail">CLI mastery, bash scripting fundamentals, automation</div>
+                </div>
+                <div class="module-status locked" aria-label="Locked">&#128274;</div>
+              </li>
+              <li class="path-module" data-order="06">
+                <div class="module-icon">&#9878;</div>
+                <div class="module-info">
+                  <div class="module-name">Cybersecurity Ethics &amp; Law</div>
+                  <div class="module-detail">Legal frameworks, responsible disclosure, CVE process</div>
+                </div>
+                <div class="module-status locked" aria-label="Locked">&#128274;</div>
+              </li>
+            </ol>
+            <button class="btn-neon w-full">Start Beginner Path</button>
+          </div>
+
+          <!-- INTERMEDIATE PATH -->
+          <div class="path-card glass-card">
+            <div class="path-header">
+              <div class="path-level-badge intermediate">INTERMEDIATE</div>
+              <h3 class="path-title">Security Practitioner</h3>
+              <p class="path-desc">Hands-on security skills. Learn vulnerability assessment, web app security, and common attack vectors — ethically.</p>
+              <div class="path-meta">
+                <span>6 Modules</span>
+                <span>~60 Hours</span>
+                <span>Certificate Included</span>
+              </div>
+            </div>
+            <ol class="path-modules" aria-label="Intermediate modules">
+              <li class="path-module" data-order="01">
+                <div class="module-icon">&#127760;</div>
+                <div class="module-info">
+                  <div class="module-name">Web Security Basics</div>
+                  <div class="module-detail">OWASP Top 10, XSS, SQLi, CSRF concepts</div>
+                </div>
+                <div class="module-status locked">&#128274;</div>
+              </li>
+              <li class="path-module" data-order="02">
+                <div class="module-icon">&#128272;</div>
+                <div class="module-info">
+                  <div class="module-name">Password Security</div>
+                  <div class="module-detail">Hashing, salting, credential policies, secure storage</div>
+                </div>
+                <div class="module-status locked">&#128274;</div>
+              </li>
+              <li class="path-module" data-order="03">
+                <div class="module-icon">&#128269;</div>
+                <div class="module-info">
+                  <div class="module-name">Vulnerability Assessment</div>
+                  <div class="module-detail">CVE, CVSS scoring, scanning methodology</div>
+                </div>
+                <div class="module-status locked">&#128274;</div>
+              </li>
+              <li class="path-module" data-order="04">
+                <div class="module-icon">&#128246;</div>
+                <div class="module-info">
+                  <div class="module-name">Wi-Fi Security Concepts</div>
+                  <div class="module-detail">WPA2/3, SSID, authentication, common misconfigurations</div>
+                </div>
+                <div class="module-status locked">&#128274;</div>
+              </li>
+              <li class="path-module" data-order="05">
+                <div class="module-icon">&#128270;</div>
+                <div class="module-info">
+                  <div class="module-name">Information Gathering (OSINT)</div>
+                  <div class="module-detail">Passive recon, Shodan, Google dorks, Maltego basics</div>
+                </div>
+                <div class="module-status locked">&#128274;</div>
+              </li>
+              <li class="path-module" data-order="06">
+                <div class="module-icon">&#128295;</div>
+                <div class="module-info">
+                  <div class="module-name">Security Tools Overview</div>
+                  <div class="module-detail">Nmap, Wireshark, Burp Suite fundamentals</div>
+                </div>
+                <div class="module-status locked">&#128274;</div>
+              </li>
+            </ol>
+            <button class="btn-outline-neon w-full">Requires Beginner Certificate</button>
+          </div>
+
+          <!-- ADVANCED PATH -->
+          <div class="path-card glass-card">
+            <div class="path-header">
+              <div class="path-level-badge advanced">ADVANCED</div>
+              <h3 class="path-title">Professional Pen Tester</h3>
+              <p class="path-desc">Professional-grade penetration testing, forensics, and incident response. OSCP preparation track.</p>
+              <div class="path-meta">
+                <span>6 Modules</span>
+                <span>~80 Hours</span>
+                <span>Certificate Included</span>
+              </div>
+            </div>
+            <ol class="path-modules" aria-label="Advanced modules">
+              <li class="path-module" data-order="01">
+                <div class="module-icon">&#9876;</div>
+                <div class="module-info">
+                  <div class="module-name">Penetration Testing Methodology</div>
+                  <div class="module-detail">PTES, scope definition, rules of engagement, reporting</div>
+                </div>
+                <div class="module-status locked">&#128274;</div>
+              </li>
+              <li class="path-module" data-order="02">
+                <div class="module-icon">&#128203;</div>
+                <div class="module-info">
+                  <div class="module-name">Security Auditing</div>
+                  <div class="module-detail">Compliance frameworks, ISO 27001, PCI-DSS, NIST</div>
+                </div>
+                <div class="module-status locked">&#128274;</div>
+              </li>
+              <li class="path-module" data-order="03">
+                <div class="module-icon">&#128084;</div>
+                <div class="module-info">
+                  <div class="module-name">Digital Forensics Basics</div>
+                  <div class="module-detail">Evidence handling, disk imaging, log analysis</div>
+                </div>
+                <div class="module-status locked">&#128274;</div>
+              </li>
+              <li class="path-module" data-order="04">
+                <div class="module-icon">&#9888;</div>
+                <div class="module-info">
+                  <div class="module-name">Threat Analysis &amp; Intelligence</div>
+                  <div class="module-detail">MITRE ATT&amp;CK, threat modeling, IOCs</div>
+                </div>
+                <div class="module-status locked">&#128274;</div>
+              </li>
+              <li class="path-module" data-order="05">
+                <div class="module-icon">&#128737;</div>
+                <div class="module-info">
+                  <div class="module-name">Defensive Security</div>
+                  <div class="module-detail">Firewalls, IDS/IPS, SIEM, hardening techniques</div>
+                </div>
+                <div class="module-status locked">&#128274;</div>
+              </li>
+              <li class="path-module" data-order="06">
+                <div class="module-icon">&#128680;</div>
+                <div class="module-info">
+                  <div class="module-name">Incident Response</div>
+                  <div class="module-detail">IR lifecycle, containment, eradication, lessons learned</div>
+                </div>
+                <div class="module-status locked">&#128274;</div>
+              </li>
+            </ol>
+            <button class="btn-outline-neon w-full">Requires Intermediate Certificate</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== LABS ===================== -->
+    <section id="labs" class="page-section" aria-label="Practice Labs" hidden>
+      <div class="section-block">
+        <div class="section-header">
+          <div class="section-eyebrow">VIRTUAL ENVIRONMENT</div>
+          <h2 class="section-title">Practice Labs</h2>
+          <p class="section-sub">Safe, isolated virtual machines. Every lab runs in a sandboxed environment — no real systems are ever targeted.</p>
+        </div>
+        <div class="labs-disclaimer glass-card">
+          <span class="disclaimer-icon">&#9888;</span>
+          <p><strong>Legal &amp; Ethical Notice:</strong> All practice labs are conducted in isolated, controlled virtual environments owned by CyberStart Academy. Techniques learned here must only be applied with explicit written permission on systems you own or are authorized to test. Unauthorized access to computer systems is illegal and unethical.</p>
+        </div>
+        <div class="labs-categories">
+          <div class="labs-cat-header">
+            <button class="filter-btn active" data-lab-filter="all">All Labs</button>
+            <button class="filter-btn" data-lab-filter="ctf">CTF Challenges</button>
+            <button class="filter-btn" data-lab-filter="network">Networking</button>
+            <button class="filter-btn" data-lab-filter="web">Web Security</button>
+            <button class="filter-btn" data-lab-filter="forensics">Forensics</button>
+            <button class="filter-btn" data-lab-filter="sandbox">Sandbox</button>
+          </div>
+        </div>
+        <div class="labs-grid" id="labs-grid"></div>
+      </div>
+    </section>
+
+    <!-- ===================== QUIZZES ===================== -->
+    <section id="quizzes" class="page-section" aria-label="Quizzes and Exams" hidden>
+      <div class="section-block">
+        <div class="section-header">
+          <div class="section-eyebrow">KNOWLEDGE CHECKS</div>
+          <h2 class="section-title">Quizzes &amp; Exams</h2>
+          <p class="section-sub">Test your knowledge with adaptive quizzes. Pass the final exam with 80%+ to earn your certificate.</p>
+        </div>
+        <div id="quiz-area">
+          <div class="quiz-selector-grid" id="quiz-selector"></div>
+        </div>
+        <div id="active-quiz" class="active-quiz" hidden>
+          <div class="quiz-header">
+            <h3 id="quiz-title" class="quiz-question-title"></h3>
+            <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quiz-progress-fill"></div></div>
+            <div class="quiz-meta">
+              <span id="quiz-q-counter">Question 1 of 10</span>
+              <span id="quiz-score-display">Score: 0</span>
+            </div>
+          </div>
+          <div class="question-card glass-card" id="question-card">
+            <p class="question-text" id="question-text"></p>
+            <div class="options-grid" id="options-grid" role="radiogroup" aria-label="Answer choices"></div>
+            <div class="quiz-feedback" id="quiz-feedback" aria-live="polite"></div>
+          </div>
+          <div class="quiz-nav">
+            <button class="btn-outline-neon" id="quiz-back-btn">← Back to Quizzes</button>
+            <button class="btn-neon" id="quiz-next-btn" disabled>Next →</button>
+          </div>
+        </div>
+        <div id="quiz-results" class="quiz-results glass-card" hidden>
+          <div class="result-icon" id="result-icon"></div>
+          <h3 id="result-title"></h3>
+          <div class="result-score" id="result-score"></div>
+          <p id="result-message"></p>
+          <div class="result-actions">
+            <button class="btn-neon" id="retry-quiz">Retry Quiz</button>
+            <button class="btn-outline-neon" onclick="document.getElementById('active-quiz').hidden=true;document.getElementById('quiz-results').hidden=true;document.getElementById('quiz-area').hidden=false;">All Quizzes</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== LEADERBOARD ===================== -->
+    <section id="leaderboard" class="page-section" aria-label="Leaderboard" hidden>
+      <div class="section-block">
+        <div class="section-header">
+          <div class="section-eyebrow">RANKINGS</div>
+          <h2 class="section-title">Leaderboard</h2>
+          <p class="section-sub">Earn XP by completing labs, quizzes, and challenges. Top performers win monthly prizes.</p>
+        </div>
+        <div class="leaderboard-tabs" role="tablist">
+          <button class="tab-btn active" role="tab" data-tab="weekly" aria-selected="true" aria-controls="tab-weekly">Weekly</button>
+          <button class="tab-btn" role="tab" data-tab="monthly" aria-selected="false" aria-controls="tab-monthly">Monthly</button>
+          <button class="tab-btn" role="tab" data-tab="alltime" aria-selected="false" aria-controls="tab-alltime">All Time</button>
+        </div>
+        <div class="leaderboard-wrapper glass-card">
+          <div class="leaderboard-list" id="leaderboard-list" role="list"></div>
+        </div>
+        <div class="leaderboard-your-rank glass-card">
+          <div class="your-rank-label">Your Current Rank</div>
+          <div class="your-rank-num">#247</div>
+          <div class="your-rank-xp">2,840 XP</div>
+          <button class="btn-neon">View Full Profile</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== BADGES ===================== -->
+    <section id="badges" class="page-section" aria-label="Achievements and Badges" hidden>
+      <div class="section-block">
+        <div class="section-header">
+          <div class="section-eyebrow">ACHIEVEMENTS</div>
+          <h2 class="section-title">Badges &amp; Certifications</h2>
+          <p class="section-sub">Earn verifiable digital badges as you progress. Share them on LinkedIn or your portfolio.</p>
+        </div>
+        <div class="badges-grid" id="badges-grid"></div>
+        <div class="section-block" style="margin-top:3rem">
+          <div class="section-header">
+            <div class="section-eyebrow">YOUR PROGRESS</div>
+            <h2 class="section-title">Achievement Tracker</h2>
+          </div>
+          <div class="achievements-list" id="achievements-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== VIDEOS ===================== -->
+    <section id="videos" class="page-section" aria-label="Video Tutorials" hidden>
+      <div class="section-block">
+        <div class="section-header">
+          <div class="section-eyebrow">VIDEO LIBRARY</div>
+          <h2 class="section-title">Video Tutorials</h2>
+          <p class="section-sub">Curated educational content from top cybersecurity educators. Click to watch on YouTube.</p>
+        </div>
+        <div class="filter-bar">
+          <input type="search" class="filter-input" id="video-search" placeholder="Search videos..." aria-label="Search video tutorials" />
+          <div class="filter-btns" role="group" aria-label="Filter by topic">
+            <button class="filter-btn active" data-video-filter="all">All Topics</button>
+            <button class="filter-btn" data-video-filter="linux">Linux</button>
+            <button class="filter-btn" data-video-filter="networking">Networking</button>
+            <button class="filter-btn" data-video-filter="tools">Tools</button>
+            <button class="filter-btn" data-video-filter="concepts">Concepts</button>
+          </div>
+        </div>
+        <div class="videos-grid" id="videos-grid"></div>
+      </div>
+    </section>
+
+    <!-- ===================== TOOLS ===================== -->
+    <section id="tools" class="page-section" aria-label="Tools and Guides" hidden>
+      <div class="section-block">
+        <div class="section-header">
+          <div class="section-eyebrow">EDUCATIONAL GUIDES</div>
+          <h2 class="section-title">Tools &amp; Guides</h2>
+          <p class="section-sub">In-depth educational guides for industry-standard security tools. For authorized use only.</p>
+        </div>
+        <div class="tools-disclaimer glass-card">
+          <span class="disclaimer-icon">&#9888;</span>
+          <div>
+            <strong>Legal Disclaimer:</strong> All tools described on this page are for educational purposes and authorized security testing only. Using these tools against systems without explicit written permission is illegal under computer fraud laws (CFAA, Computer Misuse Act, and equivalents). CyberStart Academy promotes responsible, ethical security research only.
+          </div>
+        </div>
+        <div class="tools-grid" id="tools-grid"></div>
+      </div>
+    </section>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section id="about" class="page-section" aria-label="About Us" hidden>
+      <div class="section-block">
+        <div class="section-header">
+          <div class="section-eyebrow">OUR MISSION</div>
+          <h2 class="section-title">About CyberStart Academy</h2>
+          <p class="section-sub">Building the next generation of ethical cybersecurity professionals.</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-text glass-card">
+            <h3>Who We Are</h3>
+            <p>CyberStart Academy was founded by a team of cybersecurity professionals, ethical hackers, and educators with a shared mission: to make high-quality cybersecurity education accessible to everyone, everywhere — while keeping it completely legal and ethical.</p>
+            <p>We believe that understanding offensive security techniques is essential for building strong defenses. Our curriculum teaches students to think like attackers so they can defend like experts.</p>
+            <h3 style="margin-top:1.5rem">Our Core Values</h3>
+            <ul class="values-list">
+              <li>&#9670; <strong>Ethics First</strong> — Every technique is taught within a strict legal framework</li>
+              <li>&#9670; <strong>Hands-On Learning</strong> — 60% lab work, 40% theory</li>
+              <li>&#9670; <strong>Community Driven</strong> — Learn with 48,500+ fellow students</li>
+              <li>&#9670; <strong>Industry Aligned</strong> — Content maps to CEH, OSCP, CompTIA Security+</li>
+            </ul>
+          </div>
+          <div class="about-team">
+            <h3 style="text-align:center;margin-bottom:1.5rem;color:var(--neon)">The Team</h3>
+            <div class="team-grid">
+              <div class="team-card glass-card">
+                <div class="team-avatar" aria-hidden="true">JC</div>
+                <div class="team-name">James Chen</div>
+                <div class="team-role">Founder &amp; Lead Instructor</div>
+                <div class="team-creds">OSCP · CEH · 15 yrs experience</div>
+              </div>
+              <div class="team-card glass-card">
+                <div class="team-avatar" aria-hidden="true">LM</div>
+                <div class="team-name">Layla Martinez</div>
+                <div class="team-role">Head of Curriculum</div>
+                <div class="team-creds">CISSP · GPEN · ex-NSA Contractor</div>
+              </div>
+              <div class="team-card glass-card">
+                <div class="team-avatar" aria-hidden="true">RK</div>
+                <div class="team-name">Rohan Kumar</div>
+                <div class="team-role">Platform &amp; Lab Engineer</div>
+                <div class="team-creds">AWS Security · DevSecOps</div>
+              </div>
+              <div class="team-card glass-card">
+                <div class="team-avatar" aria-hidden="true">ET</div>
+                <div class="team-name">Elena Torres</div>
+                <div class="team-role">Community Manager</div>
+                <div class="team-creds">Security Researcher · Bug Bounty Hunter</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section id="contact" class="page-section" aria-label="Contact Us" hidden>
+      <div class="section-block">
+        <div class="section-header">
+          <div class="section-eyebrow">REACH OUT</div>
+          <h2 class="section-title">Contact Us</h2>
+          <p class="section-sub">Questions, partnerships, or bug reports — we're here to help.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-form-wrap glass-card">
+            <h3>Send a Message</h3>
+            <div class="contact-form" id="contact-form" novalidate>
+              <div class="form-group">
+                <label for="contact-name" class="form-label">Full Name</label>
+                <input type="text" id="contact-name" class="form-input" placeholder="Your name" autocomplete="name" />
+              </div>
+              <div class="form-group">
+                <label for="contact-email" class="form-label">Email Address</label>
+                <input type="email" id="contact-email" class="form-input" placeholder="you@example.com" autocomplete="email" />
+              </div>
+              <div class="form-group">
+                <label for="contact-subject" class="form-label">Subject</label>
+                <select id="contact-subject" class="form-input">
+                  <option value="">Select a topic...</option>
+                  <option value="general">General Inquiry</option>
+                  <option value="technical">Technical Support</option>
+                  <option value="courses">Course Questions</option>
+                  <option value="partnership">Partnership / Business</option>
+                  <option value="report">Report a Security Issue</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="contact-message" class="form-label">Message</label>
+                <textarea id="contact-message" class="form-input form-textarea" placeholder="Describe your inquiry..." rows="5"></textarea>
+              </div>
+              <button type="button" class="btn-neon w-full" id="contact-submit">Send Message</button>
+              <div class="form-feedback" id="form-feedback" aria-live="polite"></div>
+            </div>
+          </div>
+          <div class="contact-info">
+            <div class="contact-info-card glass-card">
+              <div class="ci-icon">&#128231;</div>
+              <div class="ci-label">Email</div>
+              <div class="ci-value">hello@cyberstartacademy.io</div>
+            </div>
+            <div class="contact-info-card glass-card">
+              <div class="ci-icon">&#128172;</div>
+              <div class="ci-label">Discord Community</div>
+              <div class="ci-value">discord.gg/cyberstart</div>
+            </div>
+            <div class="contact-info-card glass-card">
+              <div class="ci-icon">&#128187;</div>
+              <div class="ci-label">GitHub</div>
+              <div class="ci-value">github.com/cyberstartacademy</div>
+            </div>
+            <div class="contact-info-card glass-card">
+              <div class="ci-icon">&#128205;</div>
+              <div class="ci-label">Headquarters</div>
+              <div class="ci-value">100% Remote &amp; Global</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main><!-- /main-content -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#home" class="logo" aria-label="CyberStart Academy">
+          <span class="logo-icon">&#9670;</span>
+          <span class="logo-text">Cyber<span class="logo-accent">Start</span></span>
+          <span class="logo-sub">ACADEMY</span>
+        </a>
+        <p class="footer-tagline">Building ethical cybersecurity professionals, one challenge at a time.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Twitter/X">𝕏</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="YouTube">▶</a>
+          <a href="#" aria-label="GitHub">⌥</a>
+          <a href="#" aria-label="Discord">⚡</a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4 class="footer-col-title">Learn</h4>
+          <ul>
+            <li><a href="#" onclick="navigateTo('courses')">All Courses</a></li>
+            <li><a href="#" onclick="navigateTo('learning-paths')">Learning Paths</a></li>
+            <li><a href="#" onclick="navigateTo('labs')">Practice Labs</a></li>
+            <li><a href="#" onclick="navigateTo('quizzes')">Quizzes</a></li>
+            <li><a href="#" onclick="navigateTo('videos')">Video Tutorials</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Community</h4>
+          <ul>
+            <li><a href="#" onclick="navigateTo('leaderboard')">Leaderboard</a></li>
+            <li><a href="#" onclick="navigateTo('badges')">Achievements</a></li>
+            <li><a href="#">Discord Server</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Newsletter</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Resources</h4>
+          <ul>
+            <li><a href="#" onclick="navigateTo('tools')">Tools &amp; Guides</a></li>
+            <li><a href="#">Cheat Sheets</a></li>
+            <li><a href="#">CTF Write-ups</a></li>
+            <li><a href="#">Security News</a></li>
+            <li><a href="#">Certification Prep</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Academy</h4>
+          <ul>
+            <li><a href="#" onclick="navigateTo('about')">About Us</a></li>
+            <li><a href="#" onclick="navigateTo('contact')">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Ethics Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 CyberStart Academy. All rights reserved. For educational and authorized use only.</p>
+      <p class="footer-legal">All security techniques taught here are for defensive, authorized, and ethical purposes only. Unauthorized system access is illegal.</p>
+    </div>
+  </footer>
+
+  <!-- ===== AUTH MODAL ===== -->
+  <div class="modal-overlay" id="auth-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal glass-card">
+      <button class="modal-close" id="modal-close" aria-label="Close dialog">&times;</button>
+      <div class="modal-tabs" role="tablist">
+        <button class="modal-tab active" id="tab-login" role="tab" data-modal-tab="login" aria-selected="true">Log In</button>
+        <button class="modal-tab" id="tab-register" role="tab" data-modal-tab="register" aria-selected="false">Register</button>
+      </div>
+      <!-- Login Form -->
+      <div id="modal-login" class="modal-form-panel">
+        <h2 id="modal-title" class="modal-title">Welcome Back</h2>
+        <p class="modal-sub">Log in to continue your cyber journey.</p>
+        <div class="form-group">
+          <label for="login-email" class="form-label">Email</label>
+          <input type="email" id="login-email" class="form-input" placeholder="you@example.com" autocomplete="email" />
+        </div>
+        <div class="form-group">
+          <label for="login-password" class="form-label">Password</label>
+          <input type="password" id="login-password" class="form-input" placeholder="••••••••" autocomplete="current-password" />
+        </div>
+        <div class="form-row">
+          <label class="checkbox-label"><input type="checkbox" /> Remember me</label>
+          <a href="#" class="form-link">Forgot password?</a>
+        </div>
+        <button type="button" class="btn-neon w-full" id="login-submit">Log In</button>
+        <div class="modal-divider"><span>or continue with</span></div>
+        <div class="social-btns">
+          <button class="social-btn" aria-label="Continue with Google">Google</button>
+          <button class="social-btn" aria-label="Continue with GitHub">GitHub</button>
+        </div>
+      </div>
+      <!-- Register Form -->
+      <div id="modal-register" class="modal-form-panel" hidden>
+        <h2 class="modal-title">Join the Academy</h2>
+        <p class="modal-sub">Create your free account and start hacking ethically.</p>
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="reg-fname" class="form-label">First Name</label>
+            <input type="text" id="reg-fname" class="form-input" placeholder="First" autocomplete="given-name" />
+          </div>
+          <div class="form-group">
+            <label for="reg-lname" class="form-label">Last Name</label>
+            <input type="text" id="reg-lname" class="form-input" placeholder="Last" autocomplete="family-name" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="reg-email" class="form-label">Email</label>
+          <input type="email" id="reg-email" class="form-input" placeholder="you@example.com" autocomplete="email" />
+        </div>
+        <div class="form-group">
+          <label for="reg-username" class="form-label">Username</label>
+          <input type="text" id="reg-username" class="form-input" placeholder="hacker_alias" autocomplete="username" />
+        </div>
+        <div class="form-group">
+          <label for="reg-password" class="form-label">Password</label>
+          <input type="password" id="reg-password" class="form-input" placeholder="Min. 8 characters" autocomplete="new-password" />
+          <div class="password-strength" id="pw-strength" aria-live="polite"></div>
+        </div>
+        <label class="checkbox-label" style="margin-bottom:1rem">
+          <input type="checkbox" id="reg-agree" />
+          I agree to the <a href="#" class="form-link">Terms of Service</a> and <a href="#" class="form-link">Ethics Policy</a>
+        </label>
+        <button type="button" class="btn-neon w-full" id="register-submit">Create Free Account</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TOOL DETAIL MODAL ===== -->
+  <div class="modal-overlay" id="tool-modal" role="dialog" aria-modal="true" aria-labelledby="tool-modal-title" hidden>
+    <div class="modal modal-wide glass-card">
+      <button class="modal-close" id="tool-modal-close" aria-label="Close tool guide">&times;</button>
+      <div id="tool-modal-content"></div>
+    </div>
+  </div>
+
+  <!-- ===== NOTIFICATION TOAST ===== -->
+  <div class="toast" id="toast" role="alert" aria-live="assertive" aria-atomic="true"></div>
+
+</body>
+</html>
